@@ -1,0 +1,11 @@
+torch>=1.9.1
+numpy
+pathlib
+scipy
+Flask
+gunicorn
+flask_cors
+torchvision>=0.3
+opencv-python
+matplotlib
+kornia>=0.6.11
