@@ -1,10 +1,16 @@
+# Turtles Inference
 
-## Setup
+Playground server
+
+## Run
 
 ```
-git clone --quiet https://github.com/cvg/LightGlue/
-cd LightGlue
-pip install --progress-bar off --quiet -e .
-cd ..
 pip install -r requirements.txt
+python main.py
+```
+
+Run a prediction:
+
+```
+curl -X POST -F image="@~/path_to_image/FP22-270 R.JPG" "http://localhost:5000/predict"
 ```
