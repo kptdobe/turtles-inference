@@ -281,7 +281,7 @@ def single_im_inference(image, face_side, matcher, extractor_obj, config, topN=5
     # reformat feat0 to fit batch
     feat0 = {}
     for key in nb_feat0:
-      feat0[key] = torch.concat([nb_feat0[key]] * batch_size)
+      feat0[key] = torch.concat([nb_feat0[key]] * batch_size).to(device)
 
     matches = matcher({"image0": feat0, "image1": batch})
 
@@ -492,8 +492,6 @@ def load_lightglue_model(config):
     return model, extractor
 
 def loadModel(face_side):
-  device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
   config = {
     'extractor': 'sift', # or 'superpoint',  # Or 'sift'
     'n_kpts': 1024,
